@@ -22,6 +22,28 @@ import { PropertyImplMemo } from './property'
 
 const isServer = typeof window === 'undefined'
 
+const hideViewsByName = (
+  viewIds: string[],
+  hideCollectionViewIfNameContains: string,
+  recordMap
+) => {
+  // if more than one view ...
+  if (hideCollectionViewIfNameContains && viewIds.length > 1) {
+    // ... filter out any view_ids if they contain the hide string
+    return viewIds.filter((viewId) => {
+      const viewName: string =
+        recordMap.collection_view[viewId]?.value.name.toLowerCase()
+      // Do not filter out if there's been some weird bug and the viewName = undefined
+      if (!viewName) return true
+      // true if viewName doesn't contain the hide string
+      const test: boolean =
+        viewName?.indexOf(hideCollectionViewIfNameContains.toLowerCase()) === -1
+      // console.debug(`hideViewsByName: viewName: ${viewName}: include test: ${test}`)
+      return test
+    })
+  } else return viewIds
+}
+
 export const Collection: React.FC<{
   block:
     | types.CollectionViewBlock
@@ -79,8 +101,20 @@ const CollectionViewBlock: React.FC<{
   block: types.CollectionViewBlock | types.CollectionViewPageBlock
   className?: string
 }> = ({ block, className }) => {
-  const { recordMap, showCollectionViewDropdown } = useNotionContext()
-  const { view_ids: viewIds } = block
+  const {
+    recordMap,
+    showCollectionViewDropdown,
+    hideCollectionViewIfNameContains
+  } = useNotionContext()
+  let { view_ids: viewIds } = block
+
+  // optionally, delete viewIds if they contain a certain string
+  viewIds = hideViewsByName(
+    viewIds,
+    hideCollectionViewIfNameContains,
+    recordMap
+  )
+
   const collectionId = getBlockCollectionId(block, recordMap)
 
   const [isMounted, setIsMounted] = React.useState(false)

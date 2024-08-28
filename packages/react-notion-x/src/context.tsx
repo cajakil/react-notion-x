@@ -32,6 +32,7 @@ export interface NotionContext {
   previewImages: boolean
   forceCustomImages: boolean
   showCollectionViewDropdown: boolean
+  hideCollectionViewIfNameContains: string
   showTableOfContents: boolean
   minTableOfContentsItems: number
   linkTableTitleProperties: boolean
@@ -62,6 +63,7 @@ export interface PartialNotionContext {
   previewImages?: boolean
   forceCustomImages?: boolean
   showCollectionViewDropdown?: boolean
+  hideCollectionViewIfNameContains?: string
   linkTableTitleProperties?: boolean
   isLinkCollectionToUrlProperty?: boolean
 
@@ -163,6 +165,7 @@ const defaultNotionContext: NotionContext = {
   previewImages: false,
   forceCustomImages: false,
   showCollectionViewDropdown: true,
+  hideCollectionViewIfNameContains: 'foo',
   linkTableTitleProperties: true,
   isLinkCollectionToUrlProperty: false,
 
