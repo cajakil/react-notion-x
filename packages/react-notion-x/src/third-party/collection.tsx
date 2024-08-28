@@ -6,6 +6,7 @@ import {
   getBlockParentPage,
   getTextContent
 } from 'notion-utils'
+import { normalizeTitle } from 'notion-utils'
 import { useLocalStorage, useWindowSize } from 'react-use'
 
 import { PageIcon } from '../components/page-icon'
@@ -218,6 +219,9 @@ const CollectionViewBlock: React.FC<{
     }
   }
 
+  const dataCollectionName = normalizeTitle(collection.name[0][0])
+  const dataCollectionViewName = normalizeTitle(collectionView.name)
+
   return (
     <>
       <div>
@@ -243,7 +247,11 @@ const CollectionViewBlock: React.FC<{
           </div>
         )}
       </div>
-      <div className={cs('notion-collection', className)}>
+      <div
+        className={cs('notion-collection', className)}
+        data-collection-name={dataCollectionName}
+        data-collection-view-name={dataCollectionViewName}
+      >
         <CollectionView
           collection={collection}
           collectionView={collectionView}
