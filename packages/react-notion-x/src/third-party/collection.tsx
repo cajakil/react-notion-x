@@ -33,7 +33,7 @@ const hideViewsByName = (
     // ... filter out any view_ids if they contain the hide string
     return viewIds.filter((viewId) => {
       const viewName: string =
-        recordMap.collection_view[viewId]?.value.name.toLowerCase()
+        recordMap.collection_view[viewId]?.value.name?.toLowerCase()
       // Do not filter out if there's been some weird bug and the viewName = undefined
       if (!viewName) return true
       // true if viewName doesn't contain the hide string
