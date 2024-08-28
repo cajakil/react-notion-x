@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import { PageBlock } from 'notion-types'
+import { normalizeTitle } from 'notion-utils'
 
 import { useNotionContext } from '../context'
 import { CollectionViewProps } from '../types'
@@ -57,13 +58,20 @@ function List({ blockIds, collection, collectionView }) {
             const titleSchema = collection.schema.title
             const titleData = block?.properties?.title
 
+            const dataAttrTitle = titleData
+              ? normalizeTitle(titleData[0][0])
+              : ''
+
             return (
               <components.PageLink
                 className='notion-list-item notion-page-link'
                 href={mapPageUrl(block.id)}
                 key={blockId}
               >
-                <div className='notion-list-item-title'>
+                <div
+                  className='notion-list-item-title'
+                  data-collection-row-title={dataAttrTitle}
+                >
                   <Property
                     schema={titleSchema}
                     data={titleData}
@@ -83,9 +91,18 @@ function List({ blockIds, collection, collectionView }) {
                         return null
                       }
 
+                      const dataAttrProperty = data
+                        ? normalizeTitle(schema.name)
+                        : 'undefined'
+                      const dataAttrValue = data
+                        ? normalizeTitle(data[0][0])
+                        : ''
+
                       return (
                         <div
                           className='notion-list-item-property'
+                          data-collection-item-property={dataAttrProperty}
+                          data-collection-item-value={dataAttrValue}
                           key={p.property}
                         >
                           <Property
