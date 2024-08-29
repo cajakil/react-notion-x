@@ -33,7 +33,7 @@ export const NotionRenderer: React.FC<{
   previewImages?: boolean
   forceCustomImages?: boolean
   showCollectionViewDropdown?: boolean
-  hideCollectionViewIfNameContains?: string
+  hideCollectionViewIfNameContains?: string[]
   linkTableTitleProperties?: boolean
   isLinkCollectionToUrlProperty?: boolean
   isImageZoomable?: boolean

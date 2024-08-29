@@ -25,7 +25,7 @@ const isServer = typeof window === 'undefined'
 
 const hideViewsByName = (
   viewIds: string[],
-  hideCollectionViewIfNameContains: string,
+  hideCollectionViewIfNameContains: string[],
   recordMap
 ) => {
   // if more than one view ...
@@ -36,11 +36,17 @@ const hideViewsByName = (
         recordMap.collection_view[viewId]?.value.name?.toLowerCase()
       // Do not filter out if there's been some weird bug and the viewName = undefined
       if (!viewName) return true
-      // true if viewName doesn't contain the hide string
-      const test: boolean =
-        viewName?.indexOf(hideCollectionViewIfNameContains.toLowerCase()) === -1
-      // console.debug(`hideViewsByName: viewName: ${viewName}: include test: ${test}`)
-      return test
+      for (const hideKeyword of hideCollectionViewIfNameContains) {
+        // true if viewName doesn't contain the hide string
+        const test: boolean = viewName?.indexOf(hideKeyword.toLowerCase()) > -1
+        console.debug(
+          `hideViewsByName: viewName: ${viewName}: include test: ${test}`
+        )
+        // so hide it if it's found
+        if (test) return false
+      }
+      // don't hide if a string wasn't find
+      return true
     })
   } else return viewIds
 }

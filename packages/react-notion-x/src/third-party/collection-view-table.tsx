@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { normalizeTitle } from 'notion-utils'
+
 import { useNotionContext } from '../context'
 import { CollectionViewProps } from '../types'
 import { cs } from '../utils'
@@ -151,6 +153,11 @@ function Table({ blockIds = [], collection, collectionView, width, padding }) {
                       style.width = 200
                       // style.width = `${100.0 / properties.length}%`
                     }
+                    const dataAttrProperty = data
+                      ? normalizeTitle(schema.name)
+                      : 'undefined'
+
+                    const dataAttrValue = data ? normalizeTitle(data[0][0]) : ''
 
                     return (
                       <div
@@ -159,6 +166,8 @@ function Table({ blockIds = [], collection, collectionView, width, padding }) {
                           'notion-table-cell',
                           `notion-table-cell-${schema.type}`
                         )}
+                        data-collection-item-property={dataAttrProperty}
+                        data-collection-item-value={dataAttrValue}
                         style={style}
                       >
                         <Property
