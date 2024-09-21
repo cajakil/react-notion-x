@@ -57,10 +57,15 @@ export const Text: React.FC<{
 
                 // console.log('p', blockId)
 
+                const dataTitle = normalizeTitle(
+                  recordMap.block[blockId]?.value.properties?.title[0][0]
+                )
+
                 return (
                   <components.PageLink
                     className='notion-link'
                     href={mapPageUrl(blockId)}
+                    data-link-title={dataTitle}
                   >
                     <PageTitle block={linkedBlock} />
                   </components.PageLink>
