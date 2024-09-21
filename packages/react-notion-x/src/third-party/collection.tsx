@@ -39,9 +39,10 @@ const hideViewsByName = (
       for (const hideKeyword of hideCollectionViewIfNameContains) {
         // true if viewName doesn't contain the hide string
         const test: boolean = viewName?.indexOf(hideKeyword.toLowerCase()) > -1
-        console.debug(
-          `hideViewsByName: viewName: ${viewName}: include test: ${test}`
-        )
+        console
+          .debug
+          // `hideViewsByName: viewName: ${viewName}: include test: ${test}`
+          ()
         // so hide it if it's found
         if (test) return false
       }
