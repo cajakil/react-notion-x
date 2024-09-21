@@ -58,7 +58,7 @@ export const Text: React.FC<{
                 // console.log('p', blockId)
 
                 const dataTitle = normalizeTitle(
-                  recordMap.block[blockId]?.value.properties?.title[0][0]
+                  recordMap.block[blockId]?.value?.properties?.title[0][0]
                 )
 
                 return (
