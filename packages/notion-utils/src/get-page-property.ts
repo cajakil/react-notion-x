@@ -5,7 +5,7 @@ import { getTextContent } from './get-text-content'
 /**
  * Gets the value of a collection property for a given page (collection item).
  *
- * @param propertyName property name
+ * @param propertyName property name – case insensitive
  * @param block Page block, often be first block in blockMap
  * @param recordMap
  * @returns - The return value types will follow the following principles:
