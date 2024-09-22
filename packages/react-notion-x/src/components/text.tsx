@@ -2,6 +2,7 @@ import * as React from 'react'
 
 import { Block, Decoration, ExternalObjectInstance } from 'notion-types'
 import { parsePageId } from 'notion-utils'
+import { normalizeTitle } from 'notion-utils'
 
 import { useNotionContext } from '../context'
 import { formatDate, getHashFragmentValue } from '../utils'
