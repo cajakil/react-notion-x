@@ -226,8 +226,10 @@ const CollectionViewBlock: React.FC<{
     }
   }
 
-  const dataCollectionName = normalizeTitle(collection.name[0][0])
-  const dataCollectionViewName = normalizeTitle(collectionView.name)
+  const dataCollectionName = normalizeTitle(title)
+  const dataCollectionViewName = normalizeTitle(
+    collectionView ? collectionView.name : ''
+  )
 
   return (
     <>
