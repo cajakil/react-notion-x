@@ -20,7 +20,7 @@
   "scripts": {
     "build": "tsup",
     "watch": "tsup --watch --silent --onSuccess 'echo build successful'",
-    "prepack": "run-s build"
+    "prepack": "yarn build"
   },
   "dependencies": {
     "@fisch0920/medium-zoom": "^1.0.7",
@@ -46,7 +46,9 @@
     "date-fns": "^2.28.0",
     "format-number": "^3.0.0",
     "lodash.throttle": "^4.1.1",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "tsup": "6.2.3",
+    "typescript": "4.8.4"
   },
   "peerDependencies": {
     "react": ">=16",
