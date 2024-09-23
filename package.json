@@ -23,6 +23,7 @@
     "link": "lerna exec \"yarn link\" --no-private",
     "dev": "run-s watch",
     "prebuild": "run-s clean",
+    "prepack": "run-s build:*",
     "prewatch": "run-s clean",
     "clean": "del packages/*/build",
     "pretest": "run-s build",
