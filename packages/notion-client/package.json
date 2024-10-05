@@ -24,7 +24,7 @@
   "dependencies": {
     "got": "^11.8.1",
     "notion-types": "^6.16.0",
-    "notion-utils": "^6.16.0",
+    "notion-utils": "workspace:^",
     "p-map": "^5.3.0"
   },
   "ava": {
