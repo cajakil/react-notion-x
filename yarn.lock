@@ -13118,13 +13118,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"notion-client@npm:^6.16.0, notion-client@npm:^6.16.1, notion-client@workspace:packages/notion-client":
+"notion-client@npm:^6.16.1, notion-client@workspace:^, notion-client@workspace:packages/notion-client":
   version: 0.0.0-use.local
   resolution: "notion-client@workspace:packages/notion-client"
   dependencies:
     got: "npm:^11.8.1"
     notion-types: "npm:^6.16.0"
-    notion-utils: "npm:^6.16.0"
+    notion-utils: "workspace:^"
     p-map: "npm:^5.3.0"
   languageName: unknown
   linkType: soft
@@ -13182,7 +13182,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"notion-utils@npm:^6.16.0, notion-utils@workspace:packages/notion-utils":
+"notion-utils@npm:^6.16.0, notion-utils@workspace:^, notion-utils@workspace:packages/notion-utils":
   version: 0.0.0-use.local
   resolution: "notion-utils@workspace:packages/notion-utils"
   dependencies:
@@ -15614,9 +15614,9 @@ __metadata:
     format-number: "npm:^3.0.0"
     katex: "npm:^0.15.3"
     lodash.throttle: "npm:^4.1.1"
-    notion-client: "npm:^6.16.0"
+    notion-client: "workspace:^"
     notion-types: "npm:^6.16.0"
-    notion-utils: "npm:^6.16.0"
+    notion-utils: "workspace:^"
     prismjs: "npm:^1.27.0"
     react: "npm:^18.2.0"
     react-fast-compare: "npm:^3.2.0"
