@@ -53,7 +53,7 @@ export const Text: React.FC<{
                 const linkedBlock = recordMap.block[blockId]?.value
                 if (!linkedBlock) {
                   console.log('"p" missing block', blockId)
-                  return null
+                  // return null
                 }
 
                 // console.log('p', blockId)
@@ -68,7 +68,11 @@ export const Text: React.FC<{
                     href={mapPageUrl(blockId)}
                     data-link-title={dataTitle}
                   >
-                    <PageTitle block={linkedBlock} />
+                    {linkedBlock ? (
+                      <PageTitle block={linkedBlock} />
+                    ) : (
+                      'Unknown title'
+                    )}
                   </components.PageLink>
                 )
               }
