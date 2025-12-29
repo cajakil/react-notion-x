@@ -46,6 +46,7 @@ export const Text: React.FC<{
 
         const formatted = decorations.reduce(
           (element: React.ReactNode, decorator) => {
+            // console.log(JSON.stringify(decorator))
             switch (decorator[0]) {
               case 'p': {
                 // link to an internal block (within the current workspace)
@@ -53,6 +54,7 @@ export const Text: React.FC<{
                 const linkedBlock = recordMap.block[blockId]?.value
                 if (!linkedBlock) {
                   console.log('"p" missing block', blockId)
+                  console.log('JC edit: Using placeholder title')
                   // return null
                 }
 

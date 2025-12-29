@@ -109,6 +109,7 @@ export function evalFormula(
 
     // eslint-disable-next-line no-fallthrough
     case 'function':
+      console.log(formula)
       return evalFunctionFormula(formula, ctx)
 
     default:

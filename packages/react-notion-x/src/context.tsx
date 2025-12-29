@@ -13,6 +13,7 @@ import {
   SearchNotionFn
 } from './types'
 import { defaultMapImageUrl, defaultMapPageUrl } from './utils'
+// import Link from 'next/link'
 
 export interface NotionContext {
   recordMap: ExtendedRecordMap
@@ -83,6 +84,7 @@ const DefaultLink: React.FC = (props) => (
 const DefaultLinkMemo = React.memo(DefaultLink)
 const DefaultPageLink: React.FC = (props) => <a {...props} />
 const DefaultPageLinkMemo = React.memo(DefaultPageLink)
+// const DefaultPageLinkMemo = DefaultPageLink
 
 const DefaultEmbed = (props) => <AssetWrapper {...props} />
 const DefaultHeader = Header

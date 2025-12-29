@@ -384,6 +384,7 @@ export const Block: React.FC<BlockProps> = (props) => {
       }
 
       if (block.format?.toggleable) {
+        // console.log(block)
         return (
           <details className={cs('notion-toggle', blockId)}>
             <summary>{headerBlock}</summary>
